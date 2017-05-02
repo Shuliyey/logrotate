@@ -1,6 +1,6 @@
 # Dockerized Logrotate
 
-[![Docker Stars](https://img.shields.io/docker/stars/blacklabelops/logrotate.svg)](https://hub.docker.com/r/blacklabelops/logrotate/) [![Docker Pulls](https://img.shields.io/docker/pulls/blacklabelops/logrotate.svg)](https://hub.docker.com/r/blacklabelops/logrotate/) [![](https://badge.imagelayers.io/blacklabelops/logrotate:latest.svg)](https://imagelayers.io/?images=blacklabelops/logrotate:latest 'Get your own badge on imagelayers.io')
+[![Docker Stars](https://img.shields.io/docker/stars/shuliyey/logrotate.svg)](https://hub.docker.com/r/shuliyey/logrotate/) [![Docker Pulls](https://img.shields.io/docker/pulls/shuliyey/logrotate.svg)](https://hub.docker.com/r/shuliyey/logrotate/) [![](https://badge.imagelayers.io/shuliyey/logrotate:latest.svg)](https://imagelayers.io/?images=shuliyey/logrotate:latest 'Get your own badge on imagelayers.io')
 
 This container can crawl for logfiles and rotate them. It is a side-car container
 for containers that write logfiles and need a log rotation mechanism. Just hook up some containers and define your
@@ -15,7 +15,7 @@ $ docker run -d \
 	-v /var/lib/docker/containers:/var/lib/docker/containers \
 	-v /var/log/docker:/var/log/docker \
 	-e "LOGS_DIRECTORIES=/var/lib/docker/containers /var/log/docker" \
-	blacklabelops/logrotate
+	shuliyey/logrotate
 ~~~~
 
 > This will rotate all your Docker logfiles on a daily basis up to 5 times.
@@ -28,7 +28,7 @@ $ docker run -d \
 	-v /var/log/docker:/var/log/docker \
 	-e "LOGS_DIRECTORIES=/var/lib/docker/containers /var/log/docker" \
   -e "LOGROTATE_INTERVAL=hourly" \
-  blacklabelops/logrotate
+  shuliyey/logrotate
 ~~~~
 
 > This will put logrotate on an hourly schedule.
@@ -53,7 +53,7 @@ $ docker run -d \
 	-v /var/lib/docker/containers:/var/lib/docker/containers \
 	-v /var/log/docker:/var/log/docker \
 	-e "LOGS_DIRECTORIES=/var/lib/docker/containers /var/log/docker" \
-	blacklabelops/logrotate
+	shuliyey/logrotate
 ~~~~
 
 # Customize Log File Ending
@@ -69,7 +69,7 @@ $ docker run -d \
 	-v /var/log/docker:/var/log/docker \
 	-e "LOGS_DIRECTORIES=/var/lib/docker/containers /var/log/docker" \
   -e "LOG_FILE_ENDINGS=json xml" \
-	blacklabelops/logrotate
+	shuliyey/logrotate
 ~~~~
 
 > Crawls for file endings .json and .xml.
@@ -94,7 +94,7 @@ $ docker run -d \
 	-v /var/log/docker:/var/log/docker \
 	-e "LOGS_DIRECTORIES=/var/lib/docker/containers /var/log/docker" \
   -e "LOGROTATE_INTERVAL=hourly" \
-  blacklabelops/logrotate
+  shuliyey/logrotate
 ~~~~
 
 # Set the Number of Rotations
@@ -110,7 +110,7 @@ $ docker run -d \
 	-v /var/log/docker:/var/log/docker \
 	-e "LOGS_DIRECTORIES=/var/lib/docker/containers /var/log/docker" \
   -e "LOGROTATE_COPIES=10" \
-  blacklabelops/logrotate
+  shuliyey/logrotate
 ~~~~
 
 > Will create 10 daily logs before deleting old logs.
@@ -132,7 +132,7 @@ $ docker run -d \
 	-v /var/log/docker:/var/log/docker \
 	-e "LOGS_DIRECTORIES=/var/lib/docker/containers /var/log/docker" \
   -e "LOGROTATE_SIZE=10M" \
-  blacklabelops/logrotate
+  shuliyey/logrotate
 ~~~~
 
 # Set Log File compression
@@ -148,7 +148,7 @@ $ docker run -d \
 	-v /var/log/docker:/var/log/docker \
 	-e "LOGS_DIRECTORIES=/var/lib/docker/containers /var/log/docker" \
   -e "LOGROTATE_COMPRESSION=compress" \
-  blacklabelops/logrotate
+  shuliyey/logrotate
 ~~~~
 
 # Set the Output directory
@@ -165,7 +165,7 @@ $ docker run -d \
   -v $(pwd)/logs:/logs/ \
 	-e "LOGS_DIRECTORIES=/var/lib/docker/containers /var/log/docker" \
   -e "LOGROTATE_OLDDIR=/logs" \
-  blacklabelops/logrotate
+  shuliyey/logrotate
 ~~~~
 
 > Will move old logfiles in the local directory logs/.
@@ -184,7 +184,7 @@ $ docker run -d \
 	-e "LOGS_DIRECTORIES=/var/lib/docker/containers /var/log/docker" \
   -e "LOGROTATE_INTERVAL=hourly" \
   -e "LOGROTATE_CRONSCHEDULE=* * * * * *" \
-  blacklabelops/logrotate
+  shuliyey/logrotate
 ~~~~
 
 # Log and View the Logrotate Output
@@ -203,7 +203,7 @@ $ docker run -d \
   -e "LOGROTATE_INTERVAL=hourly" \
   -e "LOGROTATE_CRONSCHEDULE=* * * * * *" \
   -e "LOGROTATE_LOGFILE=/logs/logrotatecron.log" \
-  blacklabelops/logrotate
+  shuliyey/logrotate
 ~~~~
 
 > You will be able to see logrotate output every minute in file logs/logrotatecron.log
@@ -228,7 +228,7 @@ $ docker run -d \
 	-e "LOGS_DIRECTORIES=/var/lib/docker/containers /var/log/docker" \
   -e "LOGROTATE_PARAMETERS=vdf" \
   -e "LOG_FILE=/logs/cron.log" \
-  blacklabelops/logrotate
+  shuliyey/logrotate
 ~~~~
 
 > Will run logrotate with: /usr/bin/logrotate -dvf
@@ -246,7 +246,7 @@ $ docker run -d \
   -e "LOGROTATE_STATUSFILE=/logrotate-status/logrotate.status" \
 	-e "ALL_LOGS_DIRECTORIES=/var/log" \
 	-e "LOGROTATE_PARAMETERS=vf" \
-  blacklabelops/logrotate
+  shuliyey/logrotate
 ~~~~
 
 > Writes the latest status file each logrotation. Reads status files at each start.
@@ -267,7 +267,7 @@ $ docker run -d \
   -e "LOGROTATE_INTERVAL=hourly" \
   -e "LOGROTATE_CRONSCHEDULE=* * * * * *" \
   -e "LOG_FILE=/logs/cron.log" \
-  blacklabelops/logrotate
+  shuliyey/logrotate
 ~~~~
 
 > You will be able to see cron output every minute in file logs/cron.log
@@ -289,7 +289,7 @@ $ docker run -d \
   -e "LOGROTATE_CRONSCHEDULE=0 * * * * *" \
   -e "LOGS_DIRECTORIES=/var/lib/docker/containers /var/log/docker" \
   -e "LOGROTATE_DATEFORMAT=-%Y%m%d" \
-  blacklabelops/logrotate
+  shuliyey/logrotate
 ~~~~
 
 
@@ -316,7 +316,7 @@ First install:
 
 # Support
 
-Leave a message and ask questions on Hipchat: [blacklabelops/hipchat](http://support.blacklabelops.com)
+Leave a message and ask questions on Hipchat: [shuliyey/hipchat](http://support.shuliyey.com)
 
 # References
 
