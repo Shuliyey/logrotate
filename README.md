@@ -12,10 +12,10 @@ In short, this container can rotate all your Docker logfiles just by typing:
 
 ~~~~
 $ docker run -d \
-	-v /var/lib/docker/containers:/var/lib/docker/containers \
-	-v /var/log/docker:/var/log/docker \
-	-e "LOGS_DIRECTORIES=/var/lib/docker/containers /var/log/docker" \
-	shuliyey/logrotate
+  -v /var/lib/docker/containers:/var/lib/docker/containers \
+  -v /var/log/docker:/var/log/docker \
+  -e "LOGS_DIRECTORIES=/var/lib/docker/containers /var/log/docker" \
+  shuliyey/logrotate
 ~~~~
 
 > This will rotate all your Docker logfiles on a daily basis up to 5 times.
@@ -24,9 +24,9 @@ You want to do it hourly? Just type:
 
 ~~~~
 $ docker run -d \
-	-v /var/lib/docker/containers:/var/lib/docker/containers \
-	-v /var/log/docker:/var/log/docker \
-	-e "LOGS_DIRECTORIES=/var/lib/docker/containers /var/log/docker" \
+  -v /var/lib/docker/containers:/var/lib/docker/containers \
+  -v /var/log/docker:/var/log/docker \
+  -e "LOGS_DIRECTORIES=/var/lib/docker/containers /var/log/docker" \
   -e "LOGROTATE_INTERVAL=hourly" \
   shuliyey/logrotate
 ~~~~
@@ -50,10 +50,10 @@ Example Logrotating all Docker logfiles:
 
 ~~~~
 $ docker run -d \
-	-v /var/lib/docker/containers:/var/lib/docker/containers \
-	-v /var/log/docker:/var/log/docker \
-	-e "LOGS_DIRECTORIES=/var/lib/docker/containers /var/log/docker" \
-	shuliyey/logrotate
+  -v /var/lib/docker/containers:/var/lib/docker/containers \
+  -v /var/log/docker:/var/log/docker \
+  -e "LOGS_DIRECTORIES=/var/lib/docker/containers /var/log/docker" \
+  shuliyey/logrotate
 ~~~~
 
 # Customize Log File Ending
@@ -65,11 +65,11 @@ Example:
 
 ~~~~
 $ docker run -d \
-	-v /var/lib/docker/containers:/var/lib/docker/containers \
-	-v /var/log/docker:/var/log/docker \
-	-e "LOGS_DIRECTORIES=/var/lib/docker/containers /var/log/docker" \
+  -v /var/lib/docker/containers:/var/lib/docker/containers \
+  -v /var/log/docker:/var/log/docker \
+  -e "LOGS_DIRECTORIES=/var/lib/docker/containers /var/log/docker" \
   -e "LOG_FILE_ENDINGS=json xml" \
-	shuliyey/logrotate
+  shuliyey/logrotate
 ~~~~
 
 > Crawls for file endings .json and .xml.
@@ -90,9 +90,9 @@ Example:
 
 ~~~~
 $ docker run -d \
-	-v /var/lib/docker/containers:/var/lib/docker/containers \
-	-v /var/log/docker:/var/log/docker \
-	-e "LOGS_DIRECTORIES=/var/lib/docker/containers /var/log/docker" \
+  -v /var/lib/docker/containers:/var/lib/docker/containers \
+  -v /var/log/docker:/var/log/docker \
+  -e "LOGS_DIRECTORIES=/var/lib/docker/containers /var/log/docker" \
   -e "LOGROTATE_INTERVAL=hourly" \
   shuliyey/logrotate
 ~~~~
@@ -106,9 +106,9 @@ Example:
 
 ~~~~
 $ docker run -d \
-	-v /var/lib/docker/containers:/var/lib/docker/containers \
-	-v /var/log/docker:/var/log/docker \
-	-e "LOGS_DIRECTORIES=/var/lib/docker/containers /var/log/docker" \
+  -v /var/lib/docker/containers:/var/lib/docker/containers \
+  -v /var/log/docker:/var/log/docker \
+  -e "LOGS_DIRECTORIES=/var/lib/docker/containers /var/log/docker" \
   -e "LOGROTATE_COPIES=10" \
   shuliyey/logrotate
 ~~~~
@@ -128,9 +128,9 @@ Valid example values:
 
 ~~~~
 $ docker run -d \
-	-v /var/lib/docker/containers:/var/lib/docker/containers \
-	-v /var/log/docker:/var/log/docker \
-	-e "LOGS_DIRECTORIES=/var/lib/docker/containers /var/log/docker" \
+  -v /var/lib/docker/containers:/var/lib/docker/containers \
+  -v /var/log/docker:/var/log/docker \
+  -e "LOGS_DIRECTORIES=/var/lib/docker/containers /var/log/docker" \
   -e "LOGROTATE_SIZE=10M" \
   shuliyey/logrotate
 ~~~~
@@ -144,9 +144,9 @@ Example:
 
 ~~~~
 $ docker run -d \
-	-v /var/lib/docker/containers:/var/lib/docker/containers \
-	-v /var/log/docker:/var/log/docker \
-	-e "LOGS_DIRECTORIES=/var/lib/docker/containers /var/log/docker" \
+  -v /var/lib/docker/containers:/var/lib/docker/containers \
+  -v /var/log/docker:/var/log/docker \
+  -e "LOGS_DIRECTORIES=/var/lib/docker/containers /var/log/docker" \
   -e "LOGROTATE_COMPRESSION=compress" \
   shuliyey/logrotate
 ~~~~
@@ -160,10 +160,10 @@ Example:
 
 ~~~~
 $ docker run -d \
-	-v /var/lib/docker/containers:/var/lib/docker/containers \
-	-v /var/log/docker:/var/log/docker \
+  -v /var/lib/docker/containers:/var/lib/docker/containers \
+  -v /var/log/docker:/var/log/docker \
   -v $(pwd)/logs:/logs/ \
-	-e "LOGS_DIRECTORIES=/var/lib/docker/containers /var/log/docker" \
+  -e "LOGS_DIRECTORIES=/var/lib/docker/containers /var/log/docker" \
   -e "LOGROTATE_OLDDIR=/logs" \
   shuliyey/logrotate
 ~~~~
@@ -179,9 +179,9 @@ Example:
 
 ~~~~
 $ docker run -d \
-	-v /var/lib/docker/containers:/var/lib/docker/containers \
-	-v /var/log/docker:/var/log/docker \
-	-e "LOGS_DIRECTORIES=/var/lib/docker/containers /var/log/docker" \
+  -v /var/lib/docker/containers:/var/lib/docker/containers \
+  -v /var/log/docker:/var/log/docker \
+  -e "LOGS_DIRECTORIES=/var/lib/docker/containers /var/log/docker" \
   -e "LOGROTATE_INTERVAL=hourly" \
   -e "LOGROTATE_CRONSCHEDULE=* * * * * *" \
   shuliyey/logrotate
@@ -196,10 +196,10 @@ Example:
 
 ~~~~
 $ docker run -d \
-	-v /var/lib/docker/containers:/var/lib/docker/containers \
-	-v /var/log/docker:/var/log/docker \
-	-v $(pwd)/logs:/logs \
-	-e "LOGS_DIRECTORIES=/var/lib/docker/containers /var/log/docker" \
+  -v /var/lib/docker/containers:/var/lib/docker/containers \
+  -v /var/log/docker:/var/log/docker \
+  -v $(pwd)/logs:/logs \
+  -e "LOGS_DIRECTORIES=/var/lib/docker/containers /var/log/docker" \
   -e "LOGROTATE_INTERVAL=hourly" \
   -e "LOGROTATE_CRONSCHEDULE=* * * * * *" \
   -e "LOGROTATE_LOGFILE=/logs/logrotatecron.log" \
@@ -222,10 +222,10 @@ Example for a typical testrun:
 
 ~~~~
 $ docker run -d \
-	-v /var/lib/docker/containers:/var/lib/docker/containers \
-	-v /var/log/docker:/var/log/docker \
-	-v $(pwd)/logs:/logs \
-	-e "LOGS_DIRECTORIES=/var/lib/docker/containers /var/log/docker" \
+  -v /var/lib/docker/containers:/var/lib/docker/containers \
+  -v /var/log/docker:/var/log/docker \
+  -v $(pwd)/logs:/logs \
+  -e "LOGS_DIRECTORIES=/var/lib/docker/containers /var/log/docker" \
   -e "LOGROTATE_PARAMETERS=vdf" \
   -e "LOG_FILE=/logs/cron.log" \
   shuliyey/logrotate
@@ -244,8 +244,8 @@ $ docker run -d \
   -e "LOGROTATE_INTERVAL=hourly" \
   -e "LOGROTATE_CRONSCHEDULE=0 * * * * *" \
   -e "LOGROTATE_STATUSFILE=/logrotate-status/logrotate.status" \
-	-e "ALL_LOGS_DIRECTORIES=/var/log" \
-	-e "LOGROTATE_PARAMETERS=vf" \
+  -e "ALL_LOGS_DIRECTORIES=/var/log" \
+  -e "LOGROTATE_PARAMETERS=vf" \
   shuliyey/logrotate
 ~~~~
 
@@ -260,10 +260,10 @@ Example:
 
 ~~~~
 $ docker run -d \
-	-v /var/lib/docker/containers:/var/lib/docker/containers \
-	-v /var/log/docker:/var/log/docker \
-	-v $(pwd)/logs:/logs \
-	-e "LOGS_DIRECTORIES=/var/lib/docker/containers /var/log/docker" \
+  -v /var/lib/docker/containers:/var/lib/docker/containers \
+  -v /var/log/docker:/var/log/docker \
+  -v $(pwd)/logs:/logs \
+  -e "LOGS_DIRECTORIES=/var/lib/docker/containers /var/log/docker" \
   -e "LOGROTATE_INTERVAL=hourly" \
   -e "LOGROTATE_CRONSCHEDULE=* * * * * *" \
   -e "LOG_FILE=/logs/cron.log" \
@@ -302,9 +302,9 @@ Example:
 
 ~~~~
 docker run -d \
-	-v /var/lib/docker/containers:/var/lib/docker/containers \
-	-v /var/log/docker:/var/log/docker \
-	-e "LOGS_DIRECTORIES=/var/lib/docker/containers /var/log/docker" \
+  -v /var/lib/docker/containers:/var/lib/docker/containers \
+  -v /var/log/docker:/var/log/docker \
+  -e "LOGS_DIRECTORIES=/var/lib/docker/containers /var/log/docker" \
   -e "LOGROTATE_AUTOUPDATE=false" \
   shuliyey/logrotate
 ~~~~
