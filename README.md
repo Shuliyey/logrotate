@@ -306,7 +306,7 @@ docker run -d \
 	-v /var/log/docker:/var/log/docker \
 	-e "LOGS_DIRECTORIES=/var/lib/docker/containers /var/log/docker" \
   -e "LOGROTATE_AUTOUPDATE=false" \
-  blacklabelops/logrotate
+  shuliyey/logrotate
 ~~~~
 
 
